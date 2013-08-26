@@ -32,7 +32,6 @@ namespace SDL2TK
         (void)framesPerSecond;
     }
 
-    /// event handlers
     void Module::OnEvent(const SDL_Event& event)
     {
         switch (event.type)
@@ -75,12 +74,7 @@ namespace SDL2TK
             case SDL_QUIT: OnExit(); break;
             case SDL_SYSWMEVENT: break;
 
-            default:
-            {
-                OnUser(event.user.type, event.user.code,
-                    event.user.data1, event.user.data2);
-                break;
-            }
+            default: OnUser(event.user);break;
         }
     }
 
@@ -150,12 +144,16 @@ namespace SDL2TK
         (void)event;
     }
 
-    void Module::OnJoyBall(const SDL_JoyHatEvent& event)
+    void Module::OnJoyBall(const SDL_JoyBallEvent& event)
     {
         (void)event;
     }
 
     void Module::OnMinimize()
+    {
+    }
+
+    void Module::OnMaximize()
     {
     }
 
@@ -178,7 +176,8 @@ namespace SDL2TK
         IsRunning(false);
     }
 
-    void Module::OnUser(Uint8 inType, int inCode, void* inData1, void* inData2)
+    void Module::OnUser(const SDL_UserEvent& event)
     {
+        (void)event;
     }
 }

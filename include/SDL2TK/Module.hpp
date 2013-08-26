@@ -46,12 +46,18 @@ namespace SDL2TK
             virtual void OnResize(int width, int height);
             virtual void OnExpose();
             virtual void OnExit();
-            virtual void OnUser(Uint8 type, int code, void* data1, void* data2);
+            virtual void OnUser(const SDL_UserEvent& event);
 
         protected:
             inline void IsRunning(bool isRunning) { _isRunning = isRunning; }
 
         private:
+            Module(const Module&);
+            Module(Module&&);
+
+            Module& operator=(const Module&);
+            Module& operator=(Module&&);
+
             bool _isRunning;
     };
 
