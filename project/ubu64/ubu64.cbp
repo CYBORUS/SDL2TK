@@ -35,6 +35,7 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add directory="/usr/local/include/SDL2" />
 		</Compiler>
 		<Unit filename="../../include/SDL2TK/Module.hpp" />
