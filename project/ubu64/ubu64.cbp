@@ -39,7 +39,9 @@
 			<Add directory="/usr/local/include/SDL2" />
 		</Compiler>
 		<Unit filename="../../include/SDL2TK/Module.hpp" />
+		<Unit filename="../../include/SDL2TK/Surface.hpp" />
 		<Unit filename="../../source/Module.cpp" />
+		<Unit filename="../../source/Surface.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
