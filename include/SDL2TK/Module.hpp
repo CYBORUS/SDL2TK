@@ -15,7 +15,7 @@ namespace SDL2TK
 
             inline bool IsRunning() const { return _isRunning; };
 
-            void OnEvent(const SDL_Event& inEvent);
+            void OnEvent(const SDL_Event& event);
 
             /// module operation
             virtual void OnOpen();
@@ -59,6 +59,8 @@ namespace SDL2TK
             Module& operator=(Module&&);
 
             bool _isRunning;
+
+            friend class Window;
     };
 
 }

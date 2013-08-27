@@ -40,6 +40,8 @@ namespace SDL2TK
             Surface(SDL_Surface* surface);
 
             SDL_Surface* _surface;
+
+            friend class Window;
     };
 }
 

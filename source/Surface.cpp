@@ -4,14 +4,14 @@
 namespace SDL2TK
 {
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
-    static const Uint32 RedMask = 0xff000000;
+    static const Uint32 RedMask   = 0xff000000;
     static const Uint32 GreenMask = 0x00ff0000;
-    static const Uint32 BlueMask = 0x0000ff00;
+    static const Uint32 BlueMask  = 0x0000ff00;
     static const Uint32 AlphaMask = 0x000000ff;
 #else
-    static const Uint32 RedMask = 0x000000ff;
+    static const Uint32 RedMask   = 0x000000ff;
     static const Uint32 GreenMask = 0x0000ff00;
-    static const Uint32 BlueMask = 0x00ff0000;
+    static const Uint32 BlueMask  = 0x00ff0000;
     static const Uint32 AlphaMask = 0xff000000;
 #endif
 
