@@ -12,6 +12,7 @@ class TestModule : public SDL2TK::Module
         virtual void OnOpen();
         virtual void OnClose();
         virtual void OnLoop();
+        virtual void OnPulse();
 
         virtual void OnResize(int width, int height);
     protected:

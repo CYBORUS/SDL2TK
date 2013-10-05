@@ -50,12 +50,22 @@ namespace SDL2TK
         module._isRunning = true;
         module.OnOpen();
 
+        TimeSpan lastPulse = TimeSpan::FromSDL();
         while (module.IsRunning())
         {
             module._suppressSwap = false;
             SDL_Event event;
 
             while (SDL_PollEvent(&event)) module.OnEvent(event);
+
+            TimeSpan interval = TimeSpan::FromSDL() - lastPulse;
+
+            while (interval >= module.PulseInterval())
+            {
+                module.OnPulse();
+                interval -= module.PulseInterval();
+                lastPulse += module.PulseInterval();
+            }
 
             module.OnLoop();
 

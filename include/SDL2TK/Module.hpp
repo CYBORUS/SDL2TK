@@ -1,6 +1,7 @@
 #ifndef MODULE_HPP
 #define MODULE_HPP
 
+#include "TimeSpan.hpp"
 #include <SDL.h>
 
 namespace SDL2TK
@@ -13,7 +14,15 @@ namespace SDL2TK
             Module();
             virtual ~Module();
 
-            inline bool IsRunning() const { return _isRunning; };
+            inline bool IsRunning() const
+            {
+                return _isRunning;
+            }
+
+            inline const TimeSpan PulseInterval() const
+            {
+                return _pulseInterval;
+            }
 
             void OnEvent(const SDL_Event& event);
 
@@ -51,6 +60,10 @@ namespace SDL2TK
         protected:
             inline void Stop() { _isRunning = false; }
             inline void SuppressSwap() { _suppressSwap = true; }
+            inline void PulseInterval(TimeSpan interval)
+            {
+                _pulseInterval = interval;
+            }
 
         private:
             Module(const Module&);
@@ -61,6 +74,7 @@ namespace SDL2TK
 
             bool _isRunning;
             bool _suppressSwap;
+            TimeSpan _pulseInterval;
 
             friend class Window;
     };

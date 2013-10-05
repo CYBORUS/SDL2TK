@@ -6,6 +6,7 @@ using namespace std;
 
 TestModule::TestModule()
 {
+    PulseInterval(SDL2TK::TimeSpan::FromSeconds(1));
 }
 
 TestModule::~TestModule()
@@ -24,6 +25,11 @@ void TestModule::OnClose()
 void TestModule::OnLoop()
 {
     glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void TestModule::OnPulse()
+{
+    cout << "Pulse!" << endl;
 }
 
 void TestModule::OnResize(int width, int height)

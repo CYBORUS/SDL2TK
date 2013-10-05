@@ -6,6 +6,7 @@ namespace SDL2TK
         : _isRunning(false)
         , _suppressSwap(false)
     {
+        PulseInterval(TimeSpan::FromSeconds(1) / 30);
     }
 
     Module::~Module()
