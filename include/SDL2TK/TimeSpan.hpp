@@ -172,6 +172,8 @@ namespace SDL2TK
                 return TimeSpan(weeks * TicksPerWeek);
             }
 
+            static const TimeSpan FromSDL();
+
         private:
             int64_t _ticks;
     };

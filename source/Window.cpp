@@ -52,12 +52,14 @@ namespace SDL2TK
 
         while (module.IsRunning())
         {
+            module._suppressSwap = false;
             SDL_Event event;
 
             while (SDL_PollEvent(&event)) module.OnEvent(event);
 
             module.OnLoop();
-            SDL_GL_SwapWindow(_window);
+
+            if (!module._suppressSwap) SDL_GL_SwapWindow(_window);
 
             SDL_Delay(1);
         }

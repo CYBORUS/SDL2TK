@@ -1,4 +1,5 @@
 #include "../include/SDL2TK/TimeSpan.hpp"
+#include <SDL.h>
 
 namespace SDL2TK
 {
@@ -30,5 +31,10 @@ namespace SDL2TK
     {
         _ticks /= divisor;
         return *this;
+    }
+
+    const TimeSpan TimeSpan::FromSDL()
+    {
+        return FromMilliseconds(SDL_GetTicks());
     }
 }

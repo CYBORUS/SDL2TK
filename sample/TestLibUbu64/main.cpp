@@ -15,7 +15,7 @@ int main(int argc, char** argv)
     cout << rotation.ToRadians() << endl;
     cout << sizeof(SDL2TK::Module) << endl;
 
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER);
     {
         SDL2TK::Window window;
         TestModule tm;

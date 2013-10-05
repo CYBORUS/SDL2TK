@@ -1,5 +1,6 @@
 #include "TestModule.hpp"
 #include <SDL_opengl.h>
+#include <SDL2TK/TimeSpan.hpp>
 #include <iostream>
 using namespace std;
 
@@ -29,4 +30,5 @@ void TestModule::OnResize(int width, int height)
 {
     glViewport(0, 0, width, height);
     cout << "resize " << width << "x" << height << endl;
+    cout << SDL2TK::TimeSpan::FromSDL().ToMilliseconds() << endl;
 }
