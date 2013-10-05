@@ -28,5 +28,5 @@ void TestModule::OnLoop()
 void TestModule::OnResize(int width, int height)
 {
     glViewport(0, 0, width, height);
-    cerr << "resize " << width << "x" << height << '\n';
+    cout << "resize " << width << "x" << height << endl;
 }

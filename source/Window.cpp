@@ -47,7 +47,7 @@ namespace SDL2TK
 
     void Window::Run(Module& module)
     {
-        module.IsRunning(true);
+        module._isRunning = true;
         module.OnOpen();
 
         while (module.IsRunning())

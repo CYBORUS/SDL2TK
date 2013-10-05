@@ -3,7 +3,8 @@
 namespace SDL2TK
 {
     Module::Module()
-        : _isRunning(true)
+        : _isRunning(false)
+        , _suppressSwap(false)
     {
     }
 
@@ -88,7 +89,7 @@ namespace SDL2TK
 
     void Module::OnKeyDown(const SDL_Keysym& keysym)
     {
-        if (keysym.sym == SDLK_ESCAPE) IsRunning(false);
+        if (keysym.sym == SDLK_ESCAPE) Stop();
     }
 
     void Module::OnKeyUp(const SDL_Keysym& keysym)
@@ -173,7 +174,7 @@ namespace SDL2TK
 
     void Module::OnExit()
     {
-        IsRunning(false);
+        Stop();
     }
 
     void Module::OnUser(const SDL_UserEvent& event)

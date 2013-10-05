@@ -13,6 +13,7 @@ int main(int argc, char** argv)
     rotation = rotation + rotation;
 
     cout << rotation.ToRadians() << endl;
+    cout << sizeof(SDL2TK::Module) << endl;
 
     SDL_Init(SDL_INIT_VIDEO);
     {

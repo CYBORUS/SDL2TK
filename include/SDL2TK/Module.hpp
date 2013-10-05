@@ -49,7 +49,8 @@ namespace SDL2TK
             virtual void OnUser(const SDL_UserEvent& event);
 
         protected:
-            inline void IsRunning(bool isRunning) { _isRunning = isRunning; }
+            inline void Stop() { _isRunning = false; }
+            inline void SuppressSwap() { _suppressSwap = true; }
 
         private:
             Module(const Module&);
@@ -59,6 +60,7 @@ namespace SDL2TK
             Module& operator=(Module&&);
 
             bool _isRunning;
+            bool _suppressSwap;
 
             friend class Window;
     };
