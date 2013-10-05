@@ -38,7 +38,9 @@
 			<Add option="-std=c++11" />
 			<Add directory="/usr/local/include/SDL2" />
 		</Compiler>
+		<Unit filename="../../include/SDL2TK/Matrix4x4.hpp" />
 		<Unit filename="../../include/SDL2TK/Module.hpp" />
+		<Unit filename="../../include/SDL2TK/Rotation.hpp" />
 		<Unit filename="../../include/SDL2TK/Surface.hpp" />
 		<Unit filename="../../include/SDL2TK/Window.hpp" />
 		<Unit filename="../../source/Module.cpp" />
