@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="../../project/ubu64/ubu64.cbp" />
+		<Project filename="TestLibUbu64.cbp">
+			<Depends filename="../../project/ubu64/ubu64.cbp" />
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>
