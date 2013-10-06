@@ -2,6 +2,7 @@
 #include <SDL2TK/Window.hpp>
 #include <SDL2TK/Matrix4x4.hpp>
 #include <iostream>
+#include <memory>
 using namespace std;
 
 int main(int argc, char** argv)
@@ -18,8 +19,8 @@ int main(int argc, char** argv)
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER);
     {
         SDL2TK::Window window;
-        TestModule tm;
-        window.Run(tm);
+        shared_ptr<SDL2TK::Module> module = make_shared<TestModule>();
+        window.Run(*module);
     }
     SDL_Quit();
     return 0;

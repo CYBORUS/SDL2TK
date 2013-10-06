@@ -11,6 +11,9 @@ namespace SDL2TK
             | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
         _context = (SDL_GLContext*)SDL_GL_CreateContext(_window);
         SDL_GL_SetSwapInterval(1);
+
+        GLenum e = glewInit();
+        (void)e;
     }
 
     Window::Window(Window&& other)

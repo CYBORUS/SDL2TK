@@ -1,6 +1,7 @@
 #ifndef WINDOW_HPP
 #define WINDOW_HPP
 
+#include "OpenGL/glew.h"
 #include "Surface.hpp"
 #include "Module.hpp"
 
