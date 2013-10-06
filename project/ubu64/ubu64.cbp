@@ -40,6 +40,8 @@
 		</Compiler>
 		<Unit filename="../../include/SDL2TK/Matrix4x4.hpp" />
 		<Unit filename="../../include/SDL2TK/Module.hpp" />
+		<Unit filename="../../include/SDL2TK/OpenGL/Program.hpp" />
+		<Unit filename="../../include/SDL2TK/OpenGL/ProgramBuilder.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenGL/Shader.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenGL/glew.h" />
 		<Unit filename="../../include/SDL2TK/Rotation.hpp" />
@@ -47,6 +49,8 @@
 		<Unit filename="../../include/SDL2TK/TimeSpan.hpp" />
 		<Unit filename="../../include/SDL2TK/Window.hpp" />
 		<Unit filename="../../source/Module.cpp" />
+		<Unit filename="../../source/Program.cpp" />
+		<Unit filename="../../source/ProgramBuilder.cpp" />
 		<Unit filename="../../source/Shader.cpp" />
 		<Unit filename="../../source/Surface.cpp" />
 		<Unit filename="../../source/TimeSpan.cpp" />

@@ -1,6 +1,8 @@
 #include "TestModule.hpp"
 #include <SDL2TK/TimeSpan.hpp>
 #include <SDL2TK/OpenGL/Shader.hpp>
+#include <SDL2TK/OpenGL/Program.hpp>
+#include <SDL2TK/OpenGL/ProgramBuilder.hpp>
 #include <iostream>
 using namespace std;
 

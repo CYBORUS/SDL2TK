@@ -24,7 +24,7 @@ namespace SDL2TK
             Shader& operator=(Shader&& other);
 
             inline const std::string& Errors() const { return _errors; }
-            inline bool IsGood() const { return _errors.length() > 0; }
+            inline bool IsGood() const { return _errors.length() < 1; }
 
         private:
             Shader(const Shader& other) = delete;
@@ -32,6 +32,8 @@ namespace SDL2TK
 
             GLuint _shader;
             std::string _errors;
+
+            friend class ProgramBuilder;
     };
 }
 
