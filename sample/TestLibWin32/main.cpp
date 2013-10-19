@@ -1,4 +1,5 @@
 #include "TestModule.hpp"
+#include <SDL2TK/Tools.hpp>
 #include <SDL2TK/Matrix4x4.hpp>
 #include <SDL2TK/Window.hpp>
 #include <iostream>
@@ -15,6 +16,8 @@ int main(int argc, char** argv)
 
     cout << rotation.ToRadians() << endl;
     cout << sizeof(SDL2TK::Module) << endl;
+    cout << "Stuff: " << SDL2TK::FileToString("../../LICENSE").c_str()
+        << endl;
 
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER);
     {
