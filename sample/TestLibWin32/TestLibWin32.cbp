@@ -29,8 +29,23 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
+			<Add directory="C:/dev/api/include/SDL2" />
+			<Add directory="../../include" />
 		</Compiler>
+		<Linker>
+			<Add library="sdl2tk-win32" />
+			<Add library="mingw32" />
+			<Add library="SDL2main" />
+			<Add library="SDL2" />
+			<Add library="opengl32" />
+			<Add directory="C:/dev/api/lib" />
+			<Add directory="../../project/win32" />
+		</Linker>
+		<Unit filename="TestModule.cpp" />
+		<Unit filename="TestModule.hpp" />
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
