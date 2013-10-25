@@ -43,6 +43,8 @@
 			<Add directory="C:/dev/api/lib" />
 			<Add directory="../../project/win32" />
 		</Linker>
+		<Unit filename="ParticleProgram.cpp" />
+		<Unit filename="ParticleProgram.hpp" />
 		<Unit filename="TestModule.cpp" />
 		<Unit filename="TestModule.hpp" />
 		<Unit filename="main.cpp" />

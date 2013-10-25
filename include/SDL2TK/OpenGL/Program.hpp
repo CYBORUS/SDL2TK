@@ -21,6 +21,7 @@ namespace SDL2TK
             GLint GetAttributeLocation(const GLchar* name);
 
             inline const std::string& Errors() const { return _errors; }
+            inline bool HasErrors() const { return _errors.length() > 0; }
 
         private:
             Program(GLuint& program, std::vector<GLuint>&& shaders);

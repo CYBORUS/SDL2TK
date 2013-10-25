@@ -24,6 +24,7 @@ namespace SDL2TK
             Shader& operator=(Shader&& other);
 
             inline const std::string& Errors() const { return _errors; }
+            inline bool HasErrors() const { return _errors.length() > 0; }
             inline bool IsGood() const { return _errors.length() < 1; }
 
         private:

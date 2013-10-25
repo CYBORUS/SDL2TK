@@ -28,7 +28,6 @@ namespace SDL2TK
 
             GLuint _program;
             std::vector<GLuint> _shaders;
-            std::string _errors;
     };
 }
 
