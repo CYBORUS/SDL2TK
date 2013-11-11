@@ -16,7 +16,7 @@ void main()
     
     if (t >= 0.0)
     {
-        t = mod(t, 1.0);
+        t = mod(t, 32.0);
         vert = MCVertex + vec4(Velocity * t, 0.0);
         vert.y -= 4.9 * t * t;
         Color = MColor;

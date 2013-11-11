@@ -19,7 +19,7 @@ TestModule::TestModule()
     uniform_real_distribution<float> distribution(0.0f, 1.0f);
     SDL2TK::Vector4<GLfloat> vertex(0.0f, 0.0f, 0.0f, 1.0f);
 
-    for (int i = 0; i < 1000; ++i)
+    for (int i = 0; i < 5000; ++i)
     {
         SDL2TK::Vector4<GLfloat> color;
 
@@ -31,12 +31,12 @@ TestModule::TestModule()
 
         SDL2TK::Vector3<GLfloat> velocity;
 
-        velocity.X(distribution(generator) * 2.0f - 1.0f);
-        velocity.Y(distribution(generator) * 8.0f);
+        velocity.X(distribution(generator) * 16.0f - 8.0f);
+        velocity.Y(distribution(generator) * 16.0f);
 
         //cout << velocity.X() << " " << velocity.Y() << '\n';
 
-        builder.Add(vertex, color, velocity, distribution(generator));
+        builder.Add(vertex, color, velocity, distribution(generator) * 16.0f);
     }
 
     cout.flush();
