@@ -25,6 +25,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-mwindows" />
 				</Linker>
 			</Target>
 		</Build>
@@ -43,6 +44,10 @@
 			<Add directory="C:/dev/api/lib" />
 			<Add directory="../../project/win32" />
 		</Linker>
+		<Unit filename="ParticleBufferObject.cpp" />
+		<Unit filename="ParticleBufferObject.hpp" />
+		<Unit filename="ParticleBuilder.cpp" />
+		<Unit filename="ParticleBuilder.hpp" />
 		<Unit filename="ParticleProgram.cpp" />
 		<Unit filename="ParticleProgram.hpp" />
 		<Unit filename="TestModule.cpp" />
