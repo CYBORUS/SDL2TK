@@ -2,6 +2,7 @@
 #define TESTMODULE_HPP
 
 #include "ParticleProgram.hpp"
+#include "ParticleBufferObject.hpp"
 #include <SDL2TK/Module.hpp>
 
 class TestModule : public SDL2TK::Module
@@ -19,6 +20,8 @@ class TestModule : public SDL2TK::Module
     protected:
     private:
         ParticleProgram _program;
+        ParticleBufferObject _bufferObject;
+
         SDL2TK::Matrix4x4<float> _perspectiveMatrix;
         SDL2TK::Matrix4x4<float> _modelViewMatrix;
         SDL2TK::Matrix4x4<float> _finalMatrix;

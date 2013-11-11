@@ -14,11 +14,6 @@ class ParticleProgram
         void SetMatrix(const SDL2TK::Matrix4x4<float>& matrix);
         void SetTime(float time);
 
-        inline GLint VertexAttribute() const { return _vertexAttribute; }
-        inline GLint ColorAttribute() const { return _colorAttribute; }
-        inline GLint VelocityAttribute() const { return _velocityAttribute; }
-        inline GLint StartAttribute() const { return _startAttribute; }
-
     protected:
     private:
         SDL2TK::Program _program;
@@ -28,6 +23,8 @@ class ParticleProgram
         GLint _colorAttribute;
         GLint _velocityAttribute;
         GLint _startAttribute;
+
+        friend class ParticleBufferObject;
 };
 
 #endif

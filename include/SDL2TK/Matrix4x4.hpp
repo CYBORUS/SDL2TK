@@ -216,7 +216,7 @@ namespace SDL2TK
                 matrix[10] = T(2) / (near - far);
                 matrix[14] = (far + near) / (far - near);
 
-                multiply(Matrix4x4<T>(_values), matrix);
+                Multiply(Matrix4x4<T>(_values), matrix);
             }
 
             void Orthographic(T range, T ratio)
