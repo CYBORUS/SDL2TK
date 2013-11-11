@@ -10,7 +10,7 @@ class ParticleProgram
         ParticleProgram();
         ~ParticleProgram();
 
-        inline void Use() { _program.Use(); }
+        void Use();
         void SetMatrix(const SDL2TK::Matrix4x4<float>& matrix);
         void SetTime(float time);
 

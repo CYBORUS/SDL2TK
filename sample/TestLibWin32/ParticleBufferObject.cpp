@@ -5,7 +5,7 @@
 
 static constexpr GLvoid* Offset(size_t offset)
 {
-    return (char*)0 + offset;
+    return (GLfloat*)0 + offset;
 }
 
 ParticleBufferObject::ParticleBufferObject()
@@ -68,12 +68,25 @@ void ParticleBufferObject::Draw(const ParticleProgram& program) const
 
     glBindBuffer(GL_ARRAY_BUFFER, _buffer);
     glVertexAttribPointer(program._vertexAttribute, 4, GL_FLOAT, GL_FALSE,
-        stride, 0);
+        stride, Offset(0));
+    glEnableVertexAttribArray(program._vertexAttribute);
+
     glVertexAttribPointer(program._colorAttribute, 4, GL_FLOAT, GL_FALSE,
-        stride, Offset(sizeof(GLfloat) * 4));
+        stride, Offset(4));
+    glEnableVertexAttribArray(program._colorAttribute);
+
     glVertexAttribPointer(program._velocityAttribute, 3, GL_FLOAT, GL_FALSE,
-        stride, Offset(sizeof(GLfloat) * 8));
+        stride, Offset(8));
+    glEnableVertexAttribArray(program._velocityAttribute);
+
     glVertexAttribPointer(program._startAttribute, 1, GL_FLOAT, GL_FALSE,
-        stride, Offset(sizeof(GLfloat) * 11));
+        stride, Offset(11));
+    glEnableVertexAttribArray(program._startAttribute);
+
     glDrawArrays(GL_POINTS, 0, _count);
+
+    glDisableVertexAttribArray(program._startAttribute);
+    glDisableVertexAttribArray(program._velocityAttribute);
+    glDisableVertexAttribArray(program._colorAttribute);
+    glDisableVertexAttribArray(program._vertexAttribute);
 }

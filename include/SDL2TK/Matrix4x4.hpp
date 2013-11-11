@@ -224,12 +224,12 @@ namespace SDL2TK
                 if (ratio < T(1))
                 {
                     Orthographic(-range, range, -range / ratio, range / ratio,
-                        -range, range);
+                        range, -range);
                 }
                 else
                 {
                     Orthographic(-range * ratio, range * ratio, -range, range,
-                        -range, range);
+                        range, -range);
                 }
             }
 

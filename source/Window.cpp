@@ -52,6 +52,7 @@ namespace SDL2TK
     {
         module._isRunning = true;
         module.OnOpen();
+        module.OnResize(512, 512);
 
         TimeSpan lastPulse = TimeSpan::FromSDL();
         while (module.IsRunning())

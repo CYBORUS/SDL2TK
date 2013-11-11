@@ -1,13 +1,13 @@
-#version 130
+#version 120
 
 uniform float Time;
 uniform mat4 MVPM;
 
-in vec4 MCVertex;
-in vec4 MColor;
-in vec3 Velocity;
-in float StartTime;
-out vec4 Color;
+attribute vec4 MCVertex;
+attribute vec4 MColor;
+attribute vec3 Velocity;
+attribute float StartTime;
+varying vec4 Color;
 
 void main()
 {

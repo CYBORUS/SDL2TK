@@ -24,6 +24,7 @@ TestModule::TestModule()
         SDL2TK::Vector4<GLfloat> color;
 
         color.X(distribution(generator));
+        //color.Y(0.0f);
         color.Y(distribution(generator));
         color.Z(distribution(generator));
         color.W(1.0f);
@@ -33,8 +34,12 @@ TestModule::TestModule()
         velocity.X(distribution(generator) * 2.0f - 1.0f);
         velocity.Y(distribution(generator) * 8.0f);
 
+        //cout << velocity.X() << " " << velocity.Y() << '\n';
+
         builder.Add(vertex, color, velocity, distribution(generator));
     }
+
+    cout.flush();
 
     _bufferObject = ParticleBufferObject(builder);
 }
@@ -45,7 +50,8 @@ TestModule::~TestModule()
 
 void TestModule::OnOpen()
 {
-    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glPointSize(4.0f);
 }
 
 void TestModule::OnClose()
@@ -63,7 +69,7 @@ void TestModule::OnLoop()
 
 void TestModule::OnPulse()
 {
-    const float TimeDelta = 1.0f / 1024.0f;
+    const float TimeDelta = 1.0f / 64.0f;
     _time += TimeDelta;
     _finalMatrix.Multiply(_perspectiveMatrix, _modelViewMatrix);
 }
@@ -78,6 +84,8 @@ void TestModule::OnResize(int width, int height)
     //_perspectiveMatrix.Perspective(SDL2TK::Rotation<float>::FromDegrees(30.0f),
         //aspectRatio, 1.0f, 1000.0f);
     _perspectiveMatrix.Orthographic(8.0f, aspectRatio);
+    cout << _perspectiveMatrix << endl;
+    cout << _modelViewMatrix << endl;
 
     cout << "resize " << width << "x" << height << endl;
     cout << SDL2TK::TimeSpan::FromSDL().ToMilliseconds() << endl;

@@ -26,7 +26,7 @@ ParticleProgram::ParticleProgram()
 
     SDL2TK::ProgramBuilder builder;
     builder.Attach(vertexShader);
-    builder.Attach(fragmentShader);
+    builder.Attach( fragmentShader);
 
     _program = builder.Link();
 
@@ -47,6 +47,11 @@ ParticleProgram::ParticleProgram()
 
 ParticleProgram::~ParticleProgram()
 {
+}
+
+void ParticleProgram::Use()
+{
+    _program.Use();
 }
 
 void ParticleProgram::SetMatrix(const SDL2TK::Matrix4x4<float>& matrix)
