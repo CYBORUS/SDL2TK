@@ -47,6 +47,9 @@
 		<Unit filename="../../include/SDL2TK/Rotation.hpp" />
 		<Unit filename="../../include/SDL2TK/Surface.hpp" />
 		<Unit filename="../../include/SDL2TK/TimeSpan.hpp" />
+		<Unit filename="../../include/SDL2TK/Tools.hpp" />
+		<Unit filename="../../include/SDL2TK/Vector3.hpp" />
+		<Unit filename="../../include/SDL2TK/Vector4.hpp" />
 		<Unit filename="../../include/SDL2TK/Window.hpp" />
 		<Unit filename="../../source/Module.cpp" />
 		<Unit filename="../../source/Program.cpp" />
@@ -54,6 +57,7 @@
 		<Unit filename="../../source/Shader.cpp" />
 		<Unit filename="../../source/Surface.cpp" />
 		<Unit filename="../../source/TimeSpan.cpp" />
+		<Unit filename="../../source/Tools.cpp" />
 		<Unit filename="../../source/Window.cpp" />
 		<Unit filename="../../source/glew.c">
 			<Option compilerVar="CC" />

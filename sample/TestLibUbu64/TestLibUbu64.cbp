@@ -44,6 +44,12 @@
 			<Add library="GL" />
 			<Add directory="/usr/local/lib" />
 		</Linker>
+		<Unit filename="ParticleBufferObject.cpp" />
+		<Unit filename="ParticleBufferObject.hpp" />
+		<Unit filename="ParticleBuilder.cpp" />
+		<Unit filename="ParticleBuilder.hpp" />
+		<Unit filename="ParticleProgram.cpp" />
+		<Unit filename="ParticleProgram.hpp" />
 		<Unit filename="TestModule.cpp" />
 		<Unit filename="TestModule.hpp" />
 		<Unit filename="main.cpp" />
