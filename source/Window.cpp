@@ -30,6 +30,7 @@ namespace SDL2TK
     Window::Window(Window&& other)
         : _window(other._window)
         , _context(other._context)
+        , _settings(std::move(other._settings))
     {
         other._window = nullptr;
         other._context = nullptr;
@@ -63,7 +64,7 @@ namespace SDL2TK
     {
         module._isRunning = true;
         module.OnOpen();
-        module.OnResize(512, 512);
+        module.OnResize(_settings.Width(), _settings.Height());
 
         TimeSpan lastPulse = TimeSpan::FromSDL();
         while (module.IsRunning())
