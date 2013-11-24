@@ -28,6 +28,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add directory="../../project/ubu64/bin/Release/" />
 				</Linker>
 			</Target>
 		</Build>
