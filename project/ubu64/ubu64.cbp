@@ -51,6 +51,7 @@
 		<Unit filename="../../include/SDL2TK/Vector3.hpp" />
 		<Unit filename="../../include/SDL2TK/Vector4.hpp" />
 		<Unit filename="../../include/SDL2TK/Window.hpp" />
+		<Unit filename="../../include/SDL2TK/WindowSettings.hpp" />
 		<Unit filename="../../source/Module.cpp" />
 		<Unit filename="../../source/Program.cpp" />
 		<Unit filename="../../source/ProgramBuilder.cpp" />
@@ -59,6 +60,7 @@
 		<Unit filename="../../source/TimeSpan.cpp" />
 		<Unit filename="../../source/Tools.cpp" />
 		<Unit filename="../../source/Window.cpp" />
+		<Unit filename="../../source/WindowSettings.cpp" />
 		<Unit filename="../../source/glew.c">
 			<Option compilerVar="CC" />
 		</Unit>

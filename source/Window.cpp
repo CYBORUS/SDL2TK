@@ -3,12 +3,23 @@
 namespace SDL2TK
 {
     Window::Window()
+        : Window(WindowSettings())
+    {
+    }
+
+    Window::Window(WindowSettings settings)
         : _window(nullptr)
         , _context(nullptr)
+        , _settings(std::move(settings))
     {
-        _window = SDL_CreateWindow("CYBORUS", SDL_WINDOWPOS_CENTERED,
-            SDL_WINDOWPOS_CENTERED, 512, 512, SDL_WINDOW_OPENGL
-            | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+        _window = SDL_CreateWindow(
+            _settings.Title().c_str(),
+            SDL_WINDOWPOS_CENTERED,
+            SDL_WINDOWPOS_CENTERED,
+            _settings.Width(),
+            _settings.Height(),
+            SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+
         _context = (SDL_GLContext*)SDL_GL_CreateContext(_window);
         SDL_GL_SetSwapInterval(1);
 

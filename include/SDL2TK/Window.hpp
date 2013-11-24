@@ -4,6 +4,7 @@
 #include "OpenGL/glew.h"
 #include "Surface.hpp"
 #include "Module.hpp"
+#include "WindowSettings.hpp"
 
 namespace SDL2TK
 {
@@ -11,6 +12,7 @@ namespace SDL2TK
     {
         public:
             Window();
+            Window(WindowSettings settings);
             Window(Window&& other);
             ~Window();
 
@@ -25,6 +27,7 @@ namespace SDL2TK
 
             SDL_Window* _window;
             SDL_GLContext* _context;
+            WindowSettings _settings;
     };
 }
 
