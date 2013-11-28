@@ -342,8 +342,6 @@ namespace SDL2TK
 
             void CopyInverseTo(Matrix4x4<T>& other) const
             {
-#define SWAP_ROWS(a, b) { T* _tmp = a; (a) = (b); (b) = _tmp; }
-
                 T wtmp[4][8];
                 T m0;
                 T m1;
@@ -385,9 +383,9 @@ namespace SDL2TK
                 r3[7] = 1.0;
                 r3[4] = r3[5] = r3[6] = 0.0;
 
-                if (fabs(r3[0]) > fabs(r2[0])) SWAP_ROWS(r3, r2);
-                if (fabs(r2[0]) > fabs(r1[0])) SWAP_ROWS(r2, r1);
-                if (fabs(r1[0]) > fabs(r0[0])) SWAP_ROWS(r1, r0);
+                if (fabs(r3[0]) > fabs(r2[0])) std::swap(r3, r2);
+                if (fabs(r2[0]) > fabs(r1[0])) std::swap(r2, r1);
+                if (fabs(r1[0]) > fabs(r0[0])) std::swap(r1, r0);
                 if (0.0 == r0[0]) return;
 
                 m1 = r1[0] / r0[0];
@@ -435,8 +433,8 @@ namespace SDL2TK
                     r3[7] -= m3 * s;
                 }
 
-                if (fabs(r3[1]) > fabs(r2[1])) SWAP_ROWS(r3, r2);
-                if (fabs(r2[1]) > fabs(r1[1])) SWAP_ROWS(r2, r1);
+                if (fabs(r3[1]) > fabs(r2[1])) std::swap(r3, r2);
+                if (fabs(r2[1]) > fabs(r1[1])) std::swap(r2, r1);
                 if (0.0 == r1[1]) return;
 
                 m2 = r2[1] / r1[1];
@@ -470,7 +468,7 @@ namespace SDL2TK
                     r3[7] -= m3 * s;
                 }
 
-                if (fabs(r3[2]) > fabs(r2[2])) SWAP_ROWS(r3, r2);
+                if (fabs(r3[2]) > fabs(r2[2])) std::swap(r3, r2);
                 if (0.0 == r2[2]) return;
 
                 m3 = r3[2] / r2[2];
