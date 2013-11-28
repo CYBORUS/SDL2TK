@@ -16,9 +16,21 @@ namespace SDL2TK
             constexpr Rotation(const Rotation& other)
                 : _radians(other._radians) {}
 
-            inline Rotation& operator=(const Rotation& other)
+            Rotation& operator=(const Rotation& other)
             {
                 _radians = other._radians;
+                return *this;
+            }
+
+            Rotation& operator+=(const Rotation& other)
+            {
+                _radians = Cycle(_radians + other._radians);
+                return *this;
+            }
+
+            Rotation& operator-=(const Rotation& other)
+            {
+                _radians = Cycle(_radians - other._radians);
                 return *this;
             }
 
@@ -66,7 +78,7 @@ namespace SDL2TK
             {
                 T result = radians;
 
-                if (result > Pi)
+                if (result >= Pi)
                     result -= Tau;
                 else if (result < -Pi)
                     result += Tau;
