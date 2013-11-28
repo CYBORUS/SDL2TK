@@ -34,12 +34,13 @@ namespace SDL2TK
                 Multiply(left, right);
             }
 
-            void LoadIdentity()
+            Matrix4x4<T>& LoadIdentity()
             {
                 memcpy(_values, _identity, sizeof(T) * 16);
+                return *this;
             }
 
-            void Rotate(const Rotation<T> rotation, T x, T y, T z)
+            Matrix4x4<T>& Rotate(const Rotation<T> rotation, T x, T y, T z)
             {
                 T c = cos(rotation.ToRadians());
                 T ci = T(1) - c;
@@ -57,10 +58,10 @@ namespace SDL2TK
                 matrix[6] = y * z * ci + (x * s);
                 matrix[10] = z * z * ci + c;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void RotateX(const Rotation<T> rotation)
+            Matrix4x4<T>& RotateX(const Rotation<T> rotation)
             {
                 T c = cos(rotation.ToRadians());
                 T s = sin(rotation.ToRadians());
@@ -72,10 +73,10 @@ namespace SDL2TK
                 matrix[6] = s;
                 matrix[10] = c;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void RotateY(const Rotation<T> rotation)
+            Matrix4x4<T>& RotateY(const Rotation<T> rotation)
             {
                 T c = cos(rotation.ToRadians());
                 T s = sin(rotation.ToRadians());
@@ -87,10 +88,10 @@ namespace SDL2TK
                 matrix[2] = -s;
                 matrix[10] = c;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void RotateZ(const Rotation<T> rotation)
+            Matrix4x4<T>& RotateZ(const Rotation<T> rotation)
             {
                 T c = cos(rotation.ToRadians());
                 T s = sin(rotation.ToRadians());
@@ -102,10 +103,10 @@ namespace SDL2TK
                 matrix[1] = s;
                 matrix[5] = c;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void Scale(T scale)
+            Matrix4x4<T>& Scale(T scale)
             {
                 Matrix4x4<T> matrix;
 
@@ -113,37 +114,37 @@ namespace SDL2TK
                 matrix[5] = scale;
                 matrix[10] = scale;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void ScaleX(T scale)
+            Matrix4x4<T>& ScaleX(T scale)
             {
                 Matrix4x4<T> matrix;
 
                 matrix[0] = scale;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void ScaleY(T scale)
+            Matrix4x4<T>& ScaleY(T scale)
             {
                 Matrix4x4<T> matrix;
 
                 matrix[5] = scale;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void ScaleZ(T scale)
+            Matrix4x4<T>& ScaleZ(T scale)
             {
                 Matrix4x4<T> matrix;
 
                 matrix[10] = scale;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void Scale(T x, T y, T z)
+            Matrix4x4<T>& Scale(T x, T y, T z)
             {
                 Matrix4x4<T> matrix;
 
@@ -151,10 +152,10 @@ namespace SDL2TK
                 matrix[5] = y;
                 matrix[10] = z;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void Translate(T x, T y, T z)
+            Matrix4x4<T>& Translate(T x, T y, T z)
             {
                 Matrix4x4<T> matrix;
 
@@ -162,11 +163,11 @@ namespace SDL2TK
                 matrix[13] = y;
                 matrix[14] = z;
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
             /// projection
-            void Frustum(T left, T right, T bottom, T top, T near, T far)
+            Matrix4x4<T>& Frustum(T left, T right, T bottom, T top, T near, T far)
             {
                 Matrix4x4<T> matrix;
 
@@ -179,10 +180,10 @@ namespace SDL2TK
                 matrix[11] = T(-1);
                 matrix[15] = T(0);
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void Perspective(const Rotation<T> fieldOfView, T ratio, T near,
+            Matrix4x4<T>& Perspective(const Rotation<T> fieldOfView, T ratio, T near,
                 T far, bool autoAdjust = false)
             {
                 /// adaptation of gluPerspective
@@ -202,10 +203,10 @@ namespace SDL2TK
                 matrix[11] = T(-1);
                 matrix[15] = T(0);
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void Orthographic(T left, T right, T bottom, T top, T near, T far)
+            Matrix4x4<T>& Orthographic(T left, T right, T bottom, T top, T near, T far)
             {
                 Matrix4x4<T> matrix;
 
@@ -216,10 +217,10 @@ namespace SDL2TK
                 matrix[10] = T(2) / (near - far);
                 matrix[14] = (far + near) / (far - near);
 
-                Multiply(Matrix4x4<T>(_values), matrix);
+                return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            void Orthographic(T range, T ratio)
+            Matrix4x4<T>& Orthographic(T range, T ratio)
             {
                 if (ratio < T(1))
                 {
@@ -231,6 +232,8 @@ namespace SDL2TK
                     Orthographic(-range * ratio, range * ratio, -range, range,
                         range, -range);
                 }
+
+                return *this;
             }
 
             /// matrix operators
@@ -242,7 +245,8 @@ namespace SDL2TK
                 return *this;
             }
 
-            void Multiply(const Matrix4x4<T>& left, const Matrix4x4<T>& right)
+            Matrix4x4<T>& Multiply(const Matrix4x4<T>& left,
+                const Matrix4x4<T>& right)
             {
                 /// The actual math has been completely unrolled (out of for
                 /// loops) for performance improvements.
@@ -326,6 +330,8 @@ namespace SDL2TK
                     + (left[7] * right[13])
                     + (left[11] * right[14])
                     + (left[15] * right[15]);
+
+                return *this;
             }
 
             void Inverse()
@@ -558,21 +564,6 @@ namespace SDL2TK
                     + at(3, 2) * position.Z() + at(3, 3) * position.W());
             }
 
-            void Multiply(const T* vertex, T* result) const
-            {
-                result[0] = at(0, 0) * vertex[0] + at(0, 1) * vertex[1]
-                    + at(0, 2) * vertex[2] + at(0, 3) * vertex[3];
-
-                result[1] = at(1, 0) * vertex[0] + at(1, 1) * vertex[1]
-                    + at(1, 2) * vertex[2] + at(1, 3) * vertex[3];
-
-                result[2] = at(2, 0) * vertex[0] + at(2, 1) * vertex[1]
-                    + at(2, 2) * vertex[2] + at(2, 3) * vertex[3];
-
-                result[3] = at(3, 0) * vertex[0] + at(3, 1) * vertex[1]
-                    + at(3, 2) * vertex[2] + at(3, 3) * vertex[3];
-            }
-
             void Transform(const Vector3<T>& position, Vector3<T>& result) const
             {
                 Vector4<T> rawPosition(position, T(1));
@@ -590,28 +581,6 @@ namespace SDL2TK
                 Vector3<T> result;
                 Transform(position, result);
                 return result;
-            }
-
-            void Transform(const T* vertex, T* result) const
-            {
-                T fullVertex[4];
-                memcpy(fullVertex, vertex, 3 * sizeof(T));
-                fullVertex[3] = 1.0f;
-
-                T step[4];
-                Multiply(fullVertex, result);
-
-                result[0] = step[0] / step[3];
-                result[1] = step[1] / step[3];
-                result[2] = step[2] / step[3];
-                result[3] = T(1);
-            }
-
-            void Transform(T* vertex) const
-            {
-                T fullVertex[4];
-                memcpy(fullVertex, vertex, 4 * sizeof(T));
-                Transform(fullVertex, vertex);
             }
 
             /// Allow this object to behave as a simple array.
@@ -642,8 +611,7 @@ namespace SDL2TK
 
             Matrix4x4<T>& operator*=(const Matrix4x4<T>& other)
             {
-                multiply(Matrix4x4<T>(_values), other);
-                return *this;
+                return Multiply(Matrix4x4<T>(_values), other);
             }
 
             const Matrix4x4<T> operator*(const Matrix4x4<T>& other) const
