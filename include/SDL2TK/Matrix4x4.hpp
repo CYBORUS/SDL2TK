@@ -2,10 +2,10 @@
 #define MATRIX4X4_HPP
 
 #include "Rotation.hpp"
+#include "Vector.hpp"
 
 #include <cmath>
 #include <cstring>
-#include <iostream>
 #include <iomanip>
 
 namespace SDL2TK
@@ -543,6 +543,21 @@ namespace SDL2TK
                 return result;
             }
 
+            void Multiply(const Vector4<T>& position, Vector4<T>& result) const
+            {
+                result.X(at(0, 0) * position.X() + at(0, 1) * position.Y()
+                    + at(0, 2) * position.Z() + at(0, 3) * position.W());
+
+                result.Y(at(1, 0) * position.X() + at(1, 1) * position.Y()
+                    + at(1, 2) * position.Z() + at(1, 3) * position.W());
+
+                result.Z(at(2, 0) * position.X() + at(2, 1) * position.Y()
+                    + at(2, 2) * position.Z() + at(2, 3) * position.W());
+
+                result.W(at(3, 0) * position.X() + at(3, 1) * position.Y()
+                    + at(3, 2) * position.Z() + at(3, 3) * position.W());
+            }
+
             void Multiply(const T* vertex, T* result) const
             {
                 result[0] = at(0, 0) * vertex[0] + at(0, 1) * vertex[1]
@@ -556,6 +571,25 @@ namespace SDL2TK
 
                 result[3] = at(3, 0) * vertex[0] + at(3, 1) * vertex[1]
                     + at(3, 2) * vertex[2] + at(3, 3) * vertex[3];
+            }
+
+            void Transform(const Vector3<T>& position, Vector3<T>& result) const
+            {
+                Vector4<T> rawPosition(position, T(1));
+                Vector4<T> rawResult;
+
+                Multiply(rawPosition, rawResult);
+
+                result.X(rawResult.X() / rawResult.W());
+                result.Y(rawResult.Y() / rawResult.W());
+                result.Z(rawResult.Z() / rawResult.W());
+            }
+
+            Vector3<T> Transform(const Vector3<T>& position)
+            {
+                Vector3<T> result;
+                Transform(position, result);
+                return result;
             }
 
             void Transform(const T* vertex, T* result) const
@@ -661,6 +695,9 @@ namespace SDL2TK
 
         return inStream;
     }
+
+    typedef Matrix4x4<float> Matrix4x4F;
+    typedef Matrix4x4<double> Matrix4x4D;
 }
 
 #endif

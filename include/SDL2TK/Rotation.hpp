@@ -91,6 +91,9 @@ namespace SDL2TK
     template<typename T> constexpr const T Rotation<T>::Tau;
     template<typename T> constexpr const T Rotation<T>::DegreesPerRadian;
     template<typename T> constexpr const T Rotation<T>::RadiansPerDegree;
+
+    typedef Rotation<float> RotationF;
+    typedef Rotation<double> RotationD;
 }
 
 #endif
