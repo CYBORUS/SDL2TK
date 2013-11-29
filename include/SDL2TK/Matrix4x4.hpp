@@ -167,7 +167,8 @@ namespace SDL2TK
             }
 
             /// projection
-            Matrix4x4<T>& Frustum(T left, T right, T bottom, T top, T near, T far)
+            Matrix4x4<T>& Frustum(T left, T right, T bottom, T top, T near,
+                T far)
             {
                 Matrix4x4<T> matrix;
 
@@ -183,8 +184,8 @@ namespace SDL2TK
                 return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
-            Matrix4x4<T>& Perspective(const Rotation<T> fieldOfView, T ratio, T near,
-                T far, bool autoAdjust = false)
+            Matrix4x4<T>& Perspective(const Rotation<T> fieldOfView, T ratio,
+                T near, T far, bool autoAdjust = false)
             {
                 /// adaptation of gluPerspective
                 /// http://www.opengl.org/sdk/docs/man/xhtml/gluPerspective.xml
