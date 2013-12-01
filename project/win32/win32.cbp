@@ -36,7 +36,6 @@
 		</Build>
 		<Compiler>
 			<Add option="-std=c++11" />
-			<Add directory="C:/dev/api/include/SDL2" />
 		</Compiler>
 		<Unit filename="../../include/SDL2TK/Matrix4x4.hpp" />
 		<Unit filename="../../include/SDL2TK/Module.hpp" />
