@@ -38,6 +38,7 @@
 			<Add option="-std=c++11" />
 			<Add directory="/usr/local/include/SDL2" />
 		</Compiler>
+		<Unit filename="../../include/SDL2TK/Camera.hpp" />
 		<Unit filename="../../include/SDL2TK/Matrix4x4.hpp" />
 		<Unit filename="../../include/SDL2TK/Module.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenGL/Program.hpp" />
@@ -49,8 +50,6 @@
 		<Unit filename="../../include/SDL2TK/TimeSpan.hpp" />
 		<Unit filename="../../include/SDL2TK/Tools.hpp" />
 		<Unit filename="../../include/SDL2TK/Vector.hpp" />
-		<Unit filename="../../include/SDL2TK/Vector3.hpp" />
-		<Unit filename="../../include/SDL2TK/Vector4.hpp" />
 		<Unit filename="../../include/SDL2TK/Window.hpp" />
 		<Unit filename="../../include/SDL2TK/WindowSettings.hpp" />
 		<Unit filename="../../source/Module.cpp" />

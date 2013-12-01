@@ -8,9 +8,9 @@ namespace SDL2TK
     {
         public:
             static constexpr const T Pi = 3.1415926535897932384626433832795;
-            static constexpr const T Tau = Pi * 2.0;
-            static constexpr const T DegreesPerRadian = 180.0 / Pi;
-            static constexpr const T RadiansPerDegree = Pi / 180.0;
+            static constexpr const T Tau = Pi * T(2);
+            static constexpr const T DegreesPerRadian = T(180) / Pi;
+            static constexpr const T RadiansPerDegree = Pi / T(180);
 
             constexpr Rotation() : _radians(0) {}
             constexpr Rotation(const Rotation& other)

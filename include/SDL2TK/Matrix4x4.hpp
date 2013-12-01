@@ -166,6 +166,17 @@ namespace SDL2TK
                 return Multiply(Matrix4x4<T>(_values), matrix);
             }
 
+            Matrix4x4<T>& Translate(const Vector3<T>& translation)
+            {
+                Matrix4x4<T> matrix;
+
+                matrix[12] = translation.X();
+                matrix[13] = translation.Y();
+                matrix[14] = translation.Z();
+
+                return Multiply(Matrix4x4<T>(_values), matrix);
+            }
+
             /// projection
             Matrix4x4<T>& Frustum(T left, T right, T bottom, T top, T near,
                 T far)

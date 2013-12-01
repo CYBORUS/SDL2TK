@@ -99,6 +99,11 @@ namespace SDL2TK
                 memcpy(_values, other.ReadOnlyData(), sizeof(T) * 3);
             }
 
+            constexpr const Vector3 operator-() const
+            {
+                return Vector3(-_values[0], -_values[1], -_values[2]);
+            }
+
             constexpr T* Data() { return _values; }
             constexpr const T* ReadOnlyData() const { return _values; }
 
