@@ -36,6 +36,34 @@ namespace SDL2TK
             constexpr T* Data() { return _values; }
             constexpr const T* ReadOnlyData() const { return _values; }
 
+            constexpr T X() const { return _values[0]; }
+            constexpr T Y() const { return _values[1]; }
+
+            void X(T value) { _values[0] = value; }
+            void Y(T value) { _values[1] = value; }
+
+            Vector2& operator=(const Vector2& other)
+            {
+                memcpy(_values, other._values, sizeof(T) * 2);
+                return *this;
+            }
+
+            Vector2& operator+=(const Vector2& other)
+            {
+                for (int i = 0; i < 2; ++i)
+                    _values[i] += other._values[i];
+
+                return *this;
+            }
+
+            Vector2& operator-=(const Vector2& other)
+            {
+                for (int i = 0; i < 2; ++i)
+                    _values[i] -= other._values[i];
+
+                return *this;
+            }
+
         private:
             T _values[2];
     };
