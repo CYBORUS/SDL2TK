@@ -49,6 +49,7 @@
 		<Unit filename="../../include/SDL2TK/Surface.hpp" />
 		<Unit filename="../../include/SDL2TK/TimeSpan.hpp" />
 		<Unit filename="../../include/SDL2TK/Tools.hpp" />
+		<Unit filename="../../include/SDL2TK/Vector.hpp" />
 		<Unit filename="../../include/SDL2TK/Vector3.hpp" />
 		<Unit filename="../../include/SDL2TK/Vector4.hpp" />
 		<Unit filename="../../include/SDL2TK/Window.hpp" />
