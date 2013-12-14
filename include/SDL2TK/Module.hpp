@@ -31,7 +31,7 @@ namespace SDL2TK
             virtual void OnClose();
             virtual void OnLoop();
             virtual void OnPulse();
-            virtual void OnSecond(Uint32 framesPerSecond);
+            virtual void OnSecond(int framesPerSecond);
 
             /// input events
             virtual void OnInputFocus();

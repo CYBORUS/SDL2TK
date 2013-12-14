@@ -29,7 +29,7 @@ namespace SDL2TK
     {
     }
 
-    void Module::OnSecond(Uint32 framesPerSecond)
+    void Module::OnSecond(int framesPerSecond)
     {
         (void)framesPerSecond;
     }

@@ -8,6 +8,14 @@
 #include <cstring>
 #include <iomanip>
 
+#ifdef near
+#undef near
+#endif
+
+#ifdef far
+#undef far
+#endif
+
 namespace SDL2TK
 {
     template<typename T>
