@@ -61,7 +61,13 @@ namespace SDL2TK
                 break;
             }
 
-            case SDL_KEYDOWN: OnKeyDown(event.key.keysym); break;
+            case SDL_KEYDOWN:
+                if (event.key.repeat)
+                    OnKeyRepeat(event.key.keysym);
+                else
+                    OnKeyDown(event.key.keysym);
+                break;
+
             case SDL_KEYUP: OnKeyUp(event.key.keysym); break;
             case SDL_MOUSEMOTION: OnMouseMove(event.motion); break;
             case SDL_MOUSEWHEEL: OnMouseWheel(event.wheel); break;
@@ -91,6 +97,11 @@ namespace SDL2TK
     void Module::OnKeyDown(const SDL_Keysym& keysym)
     {
         if (keysym.sym == SDLK_ESCAPE) Stop();
+    }
+
+    void Module::OnKeyRepeat(const SDL_Keysym& keysym)
+    {
+        (void)keysym;
     }
 
     void Module::OnKeyUp(const SDL_Keysym& keysym)

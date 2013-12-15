@@ -37,6 +37,7 @@ namespace SDL2TK
             virtual void OnInputFocus();
             virtual void OnInputBlur();
             virtual void OnKeyDown(const SDL_Keysym& keysym);
+            virtual void OnKeyRepeat(const SDL_Keysym& keysym);
             virtual void OnKeyUp(const SDL_Keysym& keysym);
             virtual void OnMouseFocus();
             virtual void OnMouseBlur();
