@@ -33,6 +33,8 @@ namespace SDL2TK
                 memcpy(_values, other.ReadOnlyData(), sizeof(T) * 2);
             }
 
+            constexpr T LengthSquared() const { return X() * X() + Y() * Y(); }
+
             constexpr T* Data() { return _values; }
             constexpr const T* ReadOnlyData() const { return _values; }
 

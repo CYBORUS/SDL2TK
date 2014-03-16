@@ -37,6 +37,7 @@
 		<Compiler>
 			<Add option="-std=c++11" />
 		</Compiler>
+		<Unit filename="../../include/SDL2TK/Camera.hpp" />
 		<Unit filename="../../include/SDL2TK/Matrix4x4.hpp" />
 		<Unit filename="../../include/SDL2TK/Module.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenGL/Program.hpp" />
