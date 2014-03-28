@@ -66,6 +66,16 @@ namespace SDL2TK
                 return *this;
             }
 
+            const Vector2 operator+(const Vector2& other)
+            {
+                return Vector2(*this) += other;
+            }
+
+            const Vector2 operator-(const Vector2& other)
+            {
+                return Vector2(*this) -= other;
+            }
+
         private:
             T _values[2];
     };
