@@ -1,6 +1,7 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
+#include <cmath>
 #include <cstring>
 #include <iostream>
 
@@ -66,14 +67,40 @@ namespace SDL2TK
                 return *this;
             }
 
-            const Vector2 operator+(const Vector2& other)
+            Vector2& operator *=(T multiplier)
+            {
+                for (int i = 0; i < 2; ++i)
+                    _values[i] *= multiplier;
+
+                return *this;
+            }
+
+            Vector2& operator /=(T divisor)
+            {
+                for (int i = 0; i < 2; ++i)
+                    _values[i] /= divisor;
+
+                return *this;
+            }
+
+            const Vector2 operator+(const Vector2& other) const
             {
                 return Vector2(*this) += other;
             }
 
-            const Vector2 operator-(const Vector2& other)
+            const Vector2 operator-(const Vector2& other) const
             {
                 return Vector2(*this) -= other;
+            }
+
+            const Vector2 operator*(T multiplier) const
+            {
+                return Vector2(*this) *= multiplier;
+            }
+
+            const Vector2 operator/(T divisor) const
+            {
+                return Vector2(*this) /= divisor;
             }
 
         private:
@@ -111,6 +138,56 @@ namespace SDL2TK
                 memcpy(_values, other.ReadOnlyData(), sizeof(T) * 3);
             }
 
+            Vector3& operator=(const Vector3& other)
+            {
+                memcpy(_values, other._values, sizeof(_values));
+                return *this;
+            }
+
+            Vector3& operator+=(const Vector3& other)
+            {
+                for (int i = 0; i < 3; ++i) _values[i] += other._values[i];
+                return *this;
+            }
+
+            Vector3& operator-=(const Vector3& other)
+            {
+                for (int i = 0; i < 3; ++i) _values[i] -= other._values[i];
+                return *this;
+            }
+
+            Vector3& operator*=(T multiplier)
+            {
+                for (int i = 0; i < 3; ++i) _values[i] *= multiplier;
+                return *this;
+            }
+
+            Vector3& operator/=(T divisor)
+            {
+                for (int i = 0; i < 3; ++i) _values[i] /= divisor;
+                return *this;
+            }
+
+            const Vector3 operator+(const Vector3& other) const
+            {
+                return Vector3(*this) += other;
+            }
+
+            const Vector3 operator-(const Vector3& other) const
+            {
+                return Vector3(*this) -= other;
+            }
+
+            const Vector3 operator*(T multiplier) const
+            {
+                return Vector3(*this) *= multiplier;
+            }
+
+            const Vector3 operator/(T divisor) const
+            {
+                return Vector3(*this) /= divisor;
+            }
+
             constexpr const Vector3 operator-() const
             {
                 return Vector3(-_values[0], -_values[1], -_values[2]);
@@ -126,6 +203,23 @@ namespace SDL2TK
             void X(T value) { _values[0] = value; }
             void Y(T value) { _values[1] = value; }
             void Z(T value) { _values[2] = value; }
+
+            T LengthSquared() const
+            {
+                return _values[0] * _values[0]
+                    + _values[1] * _values[1]
+                    + _values[2] * _values[2];
+            }
+
+            const Vector3 Normalized() const
+            {
+                T length = sqrt(LengthSquared());
+
+                return Vector3(
+                    _values[0] / length,
+                    _values[1] / length,
+                    _values[2] / length);
+            }
 
         private:
             T _values[3];

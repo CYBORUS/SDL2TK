@@ -85,7 +85,7 @@ namespace SDL2TK
                 return _distance;
             }
 
-            void Apply(Matrix4x4F& matrix) const
+            void Apply(Matrix4x4<T>& matrix) const
             {
                 matrix
                     .Translate(0, 0, -_distance)

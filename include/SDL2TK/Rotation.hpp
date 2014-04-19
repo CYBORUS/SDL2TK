@@ -46,7 +46,7 @@ namespace SDL2TK
 
             constexpr const Rotation operator-() const
             {
-                return Rotation(-_radians);
+                return Rotation(Cycle(-_radians));
             }
 
             const Rotation operator+(const Rotation other) const
