@@ -36,10 +36,15 @@
 		</Build>
 		<Compiler>
 			<Add option="-std=c++11" />
+			<Add directory="C:/Program Files (x86)/OpenAL 1.1 SDK/include" />
 		</Compiler>
 		<Unit filename="../../include/SDL2TK/Camera.hpp" />
 		<Unit filename="../../include/SDL2TK/Matrix4x4.hpp" />
 		<Unit filename="../../include/SDL2TK/Module.hpp" />
+		<Unit filename="../../include/SDL2TK/OpenAL/AudioBuffer.hpp" />
+		<Unit filename="../../include/SDL2TK/OpenAL/AudioContext.hpp" />
+		<Unit filename="../../include/SDL2TK/OpenAL/AudioDevice.hpp" />
+		<Unit filename="../../include/SDL2TK/OpenAL/AudioSource.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenGL/Program.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenGL/ProgramBuilder.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenGL/Shader.hpp" />
@@ -55,6 +60,10 @@
 		<Unit filename="../../include/SDL2TK/Vector4.hpp" />
 		<Unit filename="../../include/SDL2TK/Window.hpp" />
 		<Unit filename="../../include/SDL2TK/WindowSettings.hpp" />
+		<Unit filename="../../source/AudioBuffer.cpp" />
+		<Unit filename="../../source/AudioContext.cpp" />
+		<Unit filename="../../source/AudioDevice.cpp" />
+		<Unit filename="../../source/AudioSource.cpp" />
 		<Unit filename="../../source/Module.cpp" />
 		<Unit filename="../../source/Program.cpp" />
 		<Unit filename="../../source/ProgramBuilder.cpp" />
