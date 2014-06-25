@@ -41,6 +41,7 @@
 		<Unit filename="../../include/SDL2TK/Camera.hpp" />
 		<Unit filename="../../include/SDL2TK/Matrix4x4.hpp" />
 		<Unit filename="../../include/SDL2TK/Module.hpp" />
+		<Unit filename="../../include/SDL2TK/OpenAL/AudioContext.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenAL/AudioDevice.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenGL/Program.hpp" />
 		<Unit filename="../../include/SDL2TK/OpenGL/ProgramBuilder.hpp" />
@@ -53,6 +54,7 @@
 		<Unit filename="../../include/SDL2TK/Vector.hpp" />
 		<Unit filename="../../include/SDL2TK/Window.hpp" />
 		<Unit filename="../../include/SDL2TK/WindowSettings.hpp" />
+		<Unit filename="../../source/AudioContext.cpp" />
 		<Unit filename="../../source/AudioDevice.cpp" />
 		<Unit filename="../../source/Module.cpp" />
 		<Unit filename="../../source/Program.cpp" />

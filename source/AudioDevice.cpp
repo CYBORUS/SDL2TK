@@ -32,8 +32,8 @@ namespace SDL2TK
 
     bool AudioDevice::Close()
     {
-        ALboolean result = alcCloseDevice(_device);
+        auto result = alcCloseDevice(_device);
         _device = nullptr;
-        return result == AL_TRUE;
+        return result == ALC_TRUE;
     }
 }

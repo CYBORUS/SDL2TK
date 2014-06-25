@@ -29,6 +29,8 @@ namespace SDL2TK
             AudioDevice& operator=(const AudioDevice&) = delete;
 
             ALCdevice* _device;
+
+            friend class AudioContext;
     };
 }
 
