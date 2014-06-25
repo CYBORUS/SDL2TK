@@ -16,8 +16,32 @@ namespace SDL2TK
 
     AudioContext::~AudioContext()
     {
-        alcMakeContextCurrent(nullptr);
-        alcDestroyContext(_context);
+        if (_context != nullptr)
+        {
+            if (alcGetCurrentContext() == _context)
+                alcMakeContextCurrent(nullptr);
+
+            alcDestroyContext(_context);
+        }
+    }
+
+    AudioContext& AudioContext::operator=(AudioContext&& other)
+    {
+        if (this != &other)
+        {
+            if (_context != nullptr)
+            {
+                if (alcGetCurrentContext() == _context)
+                    alcMakeContextCurrent(nullptr);
+
+                alcDestroyContext(_context);
+            }
+
+            _context = other._context;
+            other._context = nullptr;
+        }
+
+        return *this;
     }
 
     bool AudioContext::MakeCurrent() const
