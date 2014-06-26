@@ -44,12 +44,12 @@ namespace SDL2TK
                 return TimeSpan(-_ticks);
             }
 
-            constexpr const TimeSpan operator*(int64_t multiplier)
+            constexpr const TimeSpan operator*(int64_t multiplier) const
             {
                 return TimeSpan(_ticks * multiplier);
             }
 
-            constexpr const TimeSpan operator/(int64_t divisor)
+            constexpr const TimeSpan operator/(int64_t divisor) const
             {
                 return TimeSpan(_ticks / divisor);
             }

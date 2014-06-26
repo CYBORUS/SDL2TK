@@ -36,7 +36,7 @@ namespace SDL2TK
 
             constexpr T LengthSquared() const { return X() * X() + Y() * Y(); }
 
-            constexpr T* Data() { return _values; }
+            T* Data() { return _values; }
             constexpr const T* ReadOnlyData() const { return _values; }
 
             constexpr T X() const { return _values[0]; }
@@ -193,7 +193,7 @@ namespace SDL2TK
                 return Vector3(-_values[0], -_values[1], -_values[2]);
             }
 
-            constexpr T* Data() { return _values; }
+            T* Data() { return _values; }
             constexpr const T* ReadOnlyData() const { return _values; }
 
             constexpr T X() const { return _values[0]; }
@@ -273,7 +273,7 @@ namespace SDL2TK
                 memcpy(_values, other._values, sizeof(T) * 4);
             }
 
-            constexpr T* Data() { return _values; }
+            T* Data() { return _values; }
             constexpr const T* ReadOnlyData() const { return _values; }
 
             constexpr T X() const { return _values[0]; }

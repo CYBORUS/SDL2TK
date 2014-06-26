@@ -3,6 +3,8 @@
 
 #ifdef __WIN32__
 #   include <alc.h>
+#elif defined(__APPLE__)
+#   include <OpenAL/alc.h>
 #else
 #   include <AL/alc.h>
 #endif
