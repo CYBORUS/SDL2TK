@@ -14,11 +14,11 @@ namespace SDL2TK
 
             AudioSource& operator=(AudioSource&& other);
 
-            void Bind(const AudioBuffer& buffer);
-            void Play();
-            void Pause();
-            void Stop();
-            void Rewind();
+            AudioSource& Bind(const AudioBuffer& buffer);
+            AudioSource& Play();
+            AudioSource& Pause();
+            AudioSource& Stop();
+            AudioSource& Rewind();
 
         private:
             AudioSource(const AudioSource&) = delete;

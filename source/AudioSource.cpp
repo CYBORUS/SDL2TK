@@ -31,28 +31,33 @@ namespace SDL2TK
         return *this;
     }
 
-    void AudioSource::Bind(const AudioBuffer& buffer)
+    AudioSource& AudioSource::Bind(const AudioBuffer& buffer)
     {
         alSourcei(_source, AL_BUFFER, buffer._buffer);
+        return *this;
     }
 
-    void AudioSource::Play()
+    AudioSource& AudioSource::Play()
     {
         alSourcePlay(_source);
+        return *this;
     }
 
-    void AudioSource::Pause()
+    AudioSource& AudioSource::Pause()
     {
         alSourcePause(_source);
+        return *this;
     }
 
-    void AudioSource::Stop()
+    AudioSource& AudioSource::Stop()
     {
         alSourceStop(_source);
+        return *this;
     }
 
-    void AudioSource::Rewind()
+    AudioSource& AudioSource::Rewind()
     {
         alSourceRewind(_source);
+        return *this;
     }
 }

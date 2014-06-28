@@ -20,6 +20,8 @@ namespace SDL2TK
 
             AudioBuffer& operator=(AudioBuffer&& other);
 
+            inline bool HasContent() const { return _buffer != 0; }
+
             static AudioBuffer FromWavFile(const char* path);
 
         private:

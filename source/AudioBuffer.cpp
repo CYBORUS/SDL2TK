@@ -7,7 +7,6 @@ namespace SDL2TK
     AudioBuffer::AudioBuffer()
         : _buffer(0)
     {
-        alGenBuffers(1, &_buffer);
     }
 
     AudioBuffer::AudioBuffer(AudioBuffer&& other)
@@ -61,6 +60,8 @@ namespace SDL2TK
 
                 if (dataChunkSize > 0)
                 {
+                    alGenBuffers(1, &result._buffer);
+
                     ALenum alFormat =
                         format == 1 ? AL_FORMAT_MONO16 : AL_FORMAT_STEREO16;
 
